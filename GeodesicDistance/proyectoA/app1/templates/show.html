@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+{% block title %}
+Aplicação em Django
+{% endblock %}
+{% block content %}
+<html>
+<head>
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+
+</head>
+<body>
+
+<h2>PONTOS GRAVADOS</h2>
+<p>Clique nos botões e escolha uma opção</p>
+
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Editar o Ponto</button>
+  <div id="myDropdown" class="dropdown-content">
+   <a href="/admin/">admin</a>
+  </div>
+</div>
+
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Escolher mais um Ponto</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="/app1/mapa/">mapa</a>
+ 
+  </div>
+</div>
+
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+{% for ponto1 in product_list %}
+<table>
+  <tr>
+  <th>  {{ ponto1.nome }} </th> <th>  {{ ponto1.ponto1 }} </th><br>
+
+
+  <th>  {{ ponto1.nome2 }} </th> <th>  {{ ponto1.ponto2 }} </th><br>
+  <br>
+
+ <th>  {{ ponto1.d }} </th> <th> 
+  <br>
+
+ </table>
+
+    {% endfor %}
+
+   
+
+</body>
+</html>
+{% endblock %}

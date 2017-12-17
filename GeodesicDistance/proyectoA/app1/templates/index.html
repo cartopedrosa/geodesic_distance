@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% block title%}
+Aplicacao Django
+{% endblock %}
+{% block container%}
+
+<h1>Cálculo de Linha Geodésica</h1>
+<div id="mapa" class="capas"></div>
+<div id="datos" class="capas">
+    
+        <form action="/ponto_1/" method="POST">
+
+        Nome do 1º Ponto:
+            <input type="text" name="nome1" id="nome1">
+            <br><br>
+            Nome do 2º Ponto:
+             <input type="text" name="nome2" id="nome2">
+             <br><br>
+
+             Latitude do 1º Ponto:
+            <input type="text" name="latitude1" id="latitude1">
+            <br><br>
+
+            Longitude do 1º Ponto:
+            <input type="text" name="longitude1" id="longitude1">
+            <br><br>
+
+            Latitude do 2º Ponto:
+            <input type="text" name="latitude2" id="latitude2">
+            <br><br>
+
+            Longitude do 2º Ponto:
+            <input type="text" name="longitude2" id="longitude2">
+            <br><br>
+            <p>
+                <input type="submit" id="guardar" value="Salvar Pontos">
+            </p>
+
+            <br><br>
+            
+        </form>
+    
+    
+</div>
+{% endblock %}
